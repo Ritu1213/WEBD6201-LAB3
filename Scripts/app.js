@@ -148,12 +148,10 @@ let app;
                     case "login":
                         LoadPageContent("mainContent", "./Views/content/login.html", DisplayLoginContent);
                         break;
-                    case "register":
-                        LoadPageContent("mainContent", "./Views/content/register.html", DisplayRegisterContent);
+                    case "tasklist":
+                        LoadPageContent("mainContent", "./Views/content/tasklist.html", DisplayTaskList);
                         break;
-                        case "taskList":
-                            LoadPageContent("mainContent", "./Views/content/home.html", DisplayTaskList);
-                            break;
+                            
                   
             
                 }
@@ -166,15 +164,15 @@ let app;
     {
         document.title = "WEBD6201 - Home";
 
-       LoadPageContent("mainHeader","./Views/partials/header.html", activateNavbar, "home");
+      LoadPageContent("mainHeader","./Views/partials/header.html", activateNavbar, "home");
 
        LoadPageContent("mainContent","./Views/content/home.html");
 
        LoadPageContent("mainFooter","./Views/partials/footer.html");
-       
-    
-    }
+      
+      // LoadPageContent("mainContent", "./tasklist.html", DisplayTaskList);
 
+    }
     function DisplayProductsContent()
     {
         document.title = "WEBD6201 - Products";
@@ -280,7 +278,7 @@ let app;
         // Contact Name Events
         $("#contactName").blur((e)=>
         {
-            validateInput("#contactName",( $("#contactName").val().length < 2),"Contact Name is Too Short");
+            validateInput("#contactName",( $("#contactName").val().length < 2),"Contact Name is Too Short.");
         });
 
         $("#contactName").focus((e)=>
@@ -397,9 +395,18 @@ let app;
     function DisplayTaskList()
     {
         document.title = "WEBD6201 - Task List";
+      
+        
+        LoadPageContent("mainHeader","./Views/partials/header.html", activateNavbar, "tasklist");
+
+        LoadPageContent("mainContent","./Views/content/tasklist.html");
+ 
+        LoadPageContent("mainFooter","./Views/partials/footer.html");
 
         // Task 1 a
         $("#newTaskButton").on("click", function(){
+
+           
             let inputText = $("#taskTextInput").val();
 
             let newElement = 
