@@ -131,7 +131,7 @@ let app;
                 switch(child.id)
                 {
                     case "home":
-                        LoadPageContent("mainContent", "./Views/content/home.html");
+                        LoadPageContent("mainContent", "./Views/content/home.html", DisplayHomePageContent);
                         break;
                     case "products":
                         LoadPageContent("mainContent", "./Views/content/products.html", DisplayProductsContent);
@@ -396,13 +396,13 @@ let app;
     {
         document.title = "WEBD6201 - Task List";
       
-        
-        LoadPageContent("mainHeader","./Views/partials/header.html", activateNavbar, "tasklist");
+        $("taskListButton").on("click", function()
+        {
+         LoadPageContent("mainHeader","./Views/partials/header.html", activateNavbar, "tasklist");
 
-        LoadPageContent("mainContent","./Views/content/tasklist.html");
+         LoadPageContent("mainContent","./Views/content/tasklist.html");
  
-        LoadPageContent("mainFooter","./Views/partials/footer.html");
-
+       
         // Task 1 a
         $("#newTaskButton").on("click", function(){
 
@@ -448,7 +448,8 @@ let app;
                 $(this).closest("li").remove();
             }    
         });
-    }
+    });
+}
 
     /**
      * Main Program entry point is here
